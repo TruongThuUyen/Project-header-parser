@@ -25,7 +25,7 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api/whoami', (req, res) => {
-  const ipAddress = req.ip;
+  const ipAddress = '192.168.1.8';
   const language = req.headers['accept-language'];
   const softwareHeader = req.headers['user-agent'];
   res.json({ ipAddress: ipAddress, language: language, software: softwareHeader });
