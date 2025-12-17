@@ -24,11 +24,13 @@ app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'hello API' });
 });
 
+app.set('trust proxy', 1);
 app.get('/api/whoami', (req, res) => {
-  const ipAddress = '192.168.1.8';
+  // const ipAddress = '192.168.1.8';
+  const ipAddress = req.ip;
   const language = req.headers['accept-language'];
   const softwareHeader = req.headers['user-agent'];
-  res.json({ ipAddress: ipAddress, language: language, software: softwareHeader });
+  res.json({ ipaddress: ipAddress, language: language, software: softwareHeader });
 });
 
 // listen for requests :)
